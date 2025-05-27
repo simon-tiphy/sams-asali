@@ -43,6 +43,7 @@ const testimonials = [
   },
   {
     text: "I love their harvesting gear. Great quality and affordable prices! 🧤🔥",
+
     author: "Linet W., Nairobi",
   },
   {
@@ -168,9 +169,17 @@ function Home() {
                 <h3 className="text-xl font-semibold text-[#FBBF24]">
                   Honey Product
                 </h3>
-                <p className="text-gray-300 mt-2">
+                <p className="text-gray-300 mt-2 mb-4">
                   Pure & natural — straight from our farms.
                 </p>
+                <motion.a
+                  href="/products"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block bg-yellow-500 text-[#212529] font-semibold px-6 py-2 rounded-full shadow-md hover:bg-yellow-400 transition"
+                >
+                  View Product
+                </motion.a>
               </motion.div>
             ))}
           </div>
@@ -222,7 +231,15 @@ function Home() {
                 <h3 className="text-xl font-bold text-[#FBBF24] mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-300">{service.desc}</p>
+                <p className="text-gray-300 mb-4">{service.desc}</p>
+                <motion.a
+                  href="/services"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block bg-yellow-500 text-[#212529] font-semibold px-6 py-2 rounded-full shadow-md hover:bg-yellow-400 transition"
+                >
+                  Learn More
+                </motion.a>
               </motion.div>
             ))}
           </div>
