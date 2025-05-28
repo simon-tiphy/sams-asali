@@ -1,30 +1,40 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Contact() {
   const form = useRef();
+  const [status, setStatus] = useState({ message: "", type: "" });
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
       .sendForm(
-        "service_bqujvbd", // Replace with your actual service ID
-        "template_da6v4zd", // Replace with your actual template ID
+        "service_bqujvbd",
+        "template_da6v4zd",
         form.current,
-        "K4xgYs9voWaiw-KFF"   // Replace with your actual public key
+        "K4xgYs9voWaiw-KFF"
       )
       .then(
         () => {
-          alert("Message sent successfully!");
+          setStatus({
+            message: "Thank you for reaching out! We'll get back to you shortly.",
+            type: "success",
+          });
           form.current.reset();
         },
         (error) => {
-          alert("Failed to send message. Please try again.");
+          setStatus({
+            message: "Something went wrong. Please try again later.",
+            type: "error",
+          });
           console.error("EmailJS Error:", error);
         }
       );
+
+    // Clear the status message after 5 seconds
+    setTimeout(() => setStatus({ message: "", type: "" }), 5000);
   };
 
   return (
@@ -39,6 +49,28 @@ function Contact() {
           className="bg-[#1e1e1e] p-8 rounded-2xl shadow-lg border border-yellow-500/30"
         >
           <h2 className="text-3xl font-bold text-yellow-400 mb-6">Get in Touch</h2>
+
+          <AnimatePresence>
+            {status.message && (
+              <motion.div
+                key="status"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className={`flex items-start gap-3 mb-4 px-4 py-3 rounded-md text-sm ${
+                  status.type === "success"
+                    ? "bg-green-600 text-white"
+                    : "bg-red-600 text-white"
+                }`}
+              >
+                <div className="text-xl">
+                  {status.type === "success" ? "✓" : "⚠"}
+                </div>
+                <div>{status.message}</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           <form ref={form} onSubmit={sendEmail} className="space-y-5">
             <div>
               <label className="block mb-1 text-yellow-300">Full Name</label>
