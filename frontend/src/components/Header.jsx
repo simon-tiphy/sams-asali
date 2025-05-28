@@ -9,15 +9,26 @@ function Header() {
   return (
     <header className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-6 py-4 shadow-md rounded-b-2xl">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        
         {/* Logo + Name */}
         <Link to="/" className="flex items-center space-x-2">
           <img
             src={logo}
             alt="Samsasali Logo"
-            className="h-10 w-10 object-cover rounded-full border-2 border-white shadow"
+            className="h-12 w-13 rounded-full border-2 border-white shadow-lg"
           />
-          <span className="text-2xl font-extrabold tracking-wide">Samsasali</span>
+          <span
+            className="
+              text-2xl md:text-3xl
+              font-heading font-extrabold
+              uppercase tracking-wider
+              text-white
+              drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]
+              before:block before:absolute before:-inset-1 before:bg-gradient-to-r before:from-yellow-500 before:to-yellow-600 before:-z-10 before:rounded-xl
+              relative inline-block px-4 py-1
+            "
+          >
+            Sam'sasali
+          </span>
         </Link>
 
         {/* Hamburger Button (mobile only) */}
@@ -95,6 +106,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
