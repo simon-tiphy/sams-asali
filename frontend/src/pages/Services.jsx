@@ -1,34 +1,41 @@
+// src/pages/Services.jsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+// Import your images
+import harvestingImg from "../assets/harvesting.jpg";
+import beehivesImg from "../assets/Beehives..jpg";
+import relocationImg from "../assets/relocation.jpg";
+import gearsImg from "../assets/gears.jpg";
 
 const services = [
   {
     title: "Honey Harvesting",
     description:
       "We offer 100% assurance on organic honey harvesting. The honey is carefully harvested to retain its natural flavor, nutrients, and medicinal value.",
-    image: "src/assets/harvesting.jpg",
+    image: harvestingImg,
   },
   {
     title: "Beehive Leasing & Sales",
     description:
       "Rent or own a top-quality beehive. Our packages come with professional setup and support for first-time beekeepers.",
-    image: "src/assets/Beehives..jpg",
+    image: beehivesImg,
   },
   {
     title: "Bee Relocation Services",
     description:
       "We specialize in the safe and eco-friendly relocation of bee colonies from residential or commercial areas.",
-    image: "src/assets/relocation.jpg",
+    image: relocationImg,
   },
   {
     title: "Beekeeping Gear",
     description:
       "Stay protected with our range of professional beekeeping suits, gloves, and harvesting tools.",
-    image: "src/assets/gears.jpg",
+    image: gearsImg,
   },
 ];
 
-function Services() {
+export default function Services() {
   return (
     <div className="bg-[#121212] text-white py-20 px-6 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -80,5 +87,3 @@ function Services() {
     </div>
   );
 }
-
-export default Services;
