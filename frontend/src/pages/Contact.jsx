@@ -1,6 +1,32 @@
+import { useRef } from "react";
+import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_bqujvbd", // Replace with your actual service ID
+        "template_da6v4zd", // Replace with your actual template ID
+        form.current,
+        "K4xgYs9voWaiw-KFF"   // Replace with your actual public key
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Failed to send message. Please try again.");
+          console.error("EmailJS Error:", error);
+        }
+      );
+  };
+
   return (
     <div className="bg-[#121212] text-white min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
@@ -12,14 +38,13 @@ function Contact() {
           viewport={{ once: true }}
           className="bg-[#1e1e1e] p-8 rounded-2xl shadow-lg border border-yellow-500/30"
         >
-          <h2 className="text-3xl font-bold text-yellow-400 mb-6">
-            Get in Touch
-          </h2>
-          <form className="space-y-5">
+          <h2 className="text-3xl font-bold text-yellow-400 mb-6">Get in Touch</h2>
+          <form ref={form} onSubmit={sendEmail} className="space-y-5">
             <div>
               <label className="block mb-1 text-yellow-300">Full Name</label>
               <input
                 type="text"
+                name="user_name"
                 required
                 className="w-full px-4 py-3 rounded-md bg-[#2a2a2a] border border-yellow-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
@@ -28,6 +53,7 @@ function Contact() {
               <label className="block mb-1 text-yellow-300">Email Address</label>
               <input
                 type="email"
+                name="user_email"
                 required
                 className="w-full px-4 py-3 rounded-md bg-[#2a2a2a] border border-yellow-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
@@ -35,6 +61,7 @@ function Contact() {
             <div>
               <label className="block mb-1 text-yellow-300">Message</label>
               <textarea
+                name="message"
                 rows="5"
                 required
                 className="w-full px-4 py-3 rounded-md bg-[#2a2a2a] border border-yellow-600 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
@@ -58,17 +85,32 @@ function Contact() {
           className="space-y-6"
         >
           <div className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg border border-yellow-500/30">
-            <h3 className="text-2xl font-bold text-yellow-400 mb-4">
-              Contact Information
-            </h3>
+            <h3 className="text-2xl font-bold text-yellow-400 mb-4">Contact Information</h3>
             <p className="text-gray-300">
               <strong>Address:</strong> Nairobi, Kenya
             </p>
             <p className="text-gray-300">
-              <strong>Phone:</strong> <a href="tel:+254795778490" className="text-yellow-300 hover:underline">+254 795778490</a>
+              <strong>Phone:</strong>{" "}
+              <a href="tel:+254795778490" className="text-yellow-300 hover:underline">
+                +254 795778490
+              </a>
             </p>
             <p className="text-gray-300">
-              <strong>Email:</strong> <a href="mailto:simontiphy@gmail.com" className="text-yellow-300 hover:underline">simontiphy@gmail.com</a>
+              <strong>Email:</strong>{" "}
+              <a href="mailto:simontiphy@gmail.com" className="text-yellow-300 hover:underline">
+                simontiphy@gmail.com
+              </a>
+            </p>
+            <p className="text-gray-300">
+              <strong>WhatsApp:</strong>{" "}
+              <a
+                href="https://wa.me/254795778490"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-yellow-300 hover:underline"
+              >
+                Chat on WhatsApp
+              </a>
             </p>
           </div>
 
