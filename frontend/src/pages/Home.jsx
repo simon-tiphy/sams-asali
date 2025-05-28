@@ -5,10 +5,12 @@ import heroImg from "../assets/cover.jpg";
 import product1 from "../assets/product1.png";
 import product2 from "../assets/product2.png";
 import product3 from "../assets/product3.png";
-import beeSuit from "../assets/beesuit.jpg";
+import beeSuit from "../assets/gears.jpg"; // Updated to use the correct image for the bee suit
 import hive from "../assets/Beehives..jpg";
 import relocation from "../assets/relocation.jpg";
 import ctaImg from "../assets/call.jpg"; // New background for the call to action section
+import harvesting from "../assets/harvesting.jpg"; // New image for harvesting
+import about from "../assets/tester.jpeg"; // New image for the about section
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 60 },
@@ -132,7 +134,7 @@ function Home() {
           </motion.div>
           <motion.div variants={fadeInUp}>
             <img
-              src={beeSuit}
+              src={about}
               alt="Beekeeper suit"
               className="rounded-2xl shadow-2xl object-cover w-full h-72 border border-[#FBBF24]"
             />
@@ -159,12 +161,12 @@ function Home() {
                 key={i}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.03 }}
-                className="bg-black rounded-2xl p-6 shadow-lg hover:shadow-[#FBBF24]/70 border border-[#2c2c2c] transition"
+                className="bg-[#333333] rounded-2xl p-6 shadow-lg hover:shadow-[#FBBF24]/70 border border-[#2c2c2c] transition"
               >
                 <img
                   src={img}
                   alt="product"
-                  className="h-52 w-full object-cover rounded-lg mb-5 border border-[#FBBF24]/20"
+                  className="h-52 w-full object-cover rounded-lg mb-5 border border-[#111827]/20"
                 />
                 <h3 className="text-xl font-semibold text-[#FBBF24]">
                   Honey Product
@@ -207,6 +209,11 @@ function Home() {
                 desc: "Buy or lease beehives, tailored to your environment.",
               },
               {
+                img: harvesting,
+                title: "Honey Harvesting",
+                desc: "Expert honey extraction services for maximum yield.",
+              },
+              {
                 img: relocation,
                 title: "Bee Relocation",
                 desc: "Safe, expert relocation of wild hives from your home or farm.",
@@ -221,7 +228,7 @@ function Home() {
                 key={i}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.02 }}
-                className="bg-black rounded-2xl p-6 shadow-md border border-[#2c2c2c] hover:shadow-[#FBBF24]/50 transition duration-300"
+                className="bg-[#333333] rounded-2xl p-6 shadow-md border border-[#2c2c2c] hover:shadow-[#FBBF24]/50 transition duration-300"
               >
                 <img
                   src={service.img}

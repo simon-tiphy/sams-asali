@@ -38,6 +38,7 @@ function Footer() {
             <a href="#" aria-label="Facebook" className="hover:text-yellow-300 transition"><Facebook /></a>
             <a href="#" aria-label="Instagram" className="hover:text-yellow-300 transition"><Instagram /></a>
             <a href="mailto:simontiphy@gmail.com" className="hover:text-yellow-300 transition"><Mail /></a>
+            <a href="https://wa.me/254795778490" aria-label="WhatsApp" className="hover:text-yellow-300 transition"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="h-6 w-6" /></a>
           </div>
         </div>
       </div>
