@@ -37,7 +37,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="bg-[#121212] text-white py-20 px-6 min-h-screen">
+    <div className="bg-[#121212] bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600  text-white py-20 px-6 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
