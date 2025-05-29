@@ -353,7 +353,7 @@ import product3 from "../assets/product3.png";
 import beeSuit from "../assets/gears.jpg"; // Updated to use the correct image for the bee suit
 import hive from "../assets/Beehives..jpg";
 import relocation from "../assets/relocation.jpg";
-import ctaImg from "../assets/call.jpg"; // New background for the call to action section
+import ctaImg from "../assets/beecalling.jpeg"; // New background for the call to action section
 import harvesting from "../assets/harvesting.jpg"; // New image for harvesting
 import about from "../assets/tester.jpeg"; // New image for the about section
 
@@ -485,6 +485,57 @@ function Home() {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* Why Choose Us */}
+<motion.section
+  className="py-24 bg-[#121212] text-white"
+  initial="hidden"
+  whileInView="visible"
+  transition={{ duration: 1.5, ease: "easeInOut" }}
+  viewport={{ once: true }}
+  variants={staggerContainer}
+>
+  <div className="max-w-6xl mx-auto px-6 text-center">
+    <h2 className="text-4xl font-bold text-[#FBBF24] mb-16">
+      Why Choose Samsasali?
+    </h2>
+
+    <div className="grid md:grid-cols-3 gap-10">
+      {[
+        {
+          title: "Pure & Natural Honey",
+          desc: "Harvested directly from thriving hives, our honey is 100% organic, unprocessed, and bursting with health benefits.",
+          icon: "🍯",
+        },
+        {
+          title: "Expertise You Can Trust",
+          desc: "With years of hands-on beekeeping experience, we provide reliable services, guidance, and high-quality products.",
+          icon: "🐝",
+        },
+        {
+          title: "Sustainable Impact",
+          desc: "We champion eco-friendly beekeeping and empower communities while preserving bee populations across Kenya.",
+          icon: "🌿",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          variants={fadeInUp}
+          whileHover={{ scale: 1.05 }}
+          className="bg-gradient-to-br from-[#1f1f1f] to-[#2d2d2d] rounded-3xl p-8 shadow-xl hover:shadow-yellow-500/30 border border-[#2a2a2a] transition-all duration-300"
+        >
+          <div className="text-4xl mb-4">{item.icon}</div>
+          <h3 className="text-2xl font-semibold text-[#FBBF24] mb-3">
+            {item.title}
+          </h3>
+          <p className="text-gray-300 leading-relaxed">{item.desc}</p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.section>
+
+
 
       {/* Products */}
       <motion.section
